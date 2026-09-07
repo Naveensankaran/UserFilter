@@ -15,29 +15,38 @@
     }
     body {
       margin: 0;
-      padding: 20px;
+      padding: 0;
       background: #ffffff;
       color: #333;
+      display: flex;
+      justify-content: center;
     }
     .container {
-      max-width: 480px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 360px;
+      padding: 16px 20px;
+      margin: 0;
+      border: 1px solid #e2e2e2;
+      border-radius: 4px;
+      box-shadow: none;
     }
     label {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       margin-bottom: 6px;
       color: #444;
     }
     select {
       width: 100%;
-      padding: 10px 12px;
-      font-size: 14px;
+      padding: 6px 10px;
+      font-size: 13px;
+      line-height: 20px;
       border: 1px solid #d3d3d3;
-      border-radius: 6px;
+      border-radius: 3px;
       background: #fff;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      height: 34px;
     }
     select:disabled {
       background: #f5f5f5;
@@ -45,14 +54,15 @@
     }
     .btn-row {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       justify-content: flex-end;
+      margin-top: 4px;
     }
     button {
-      padding: 9px 20px;
-      font-size: 14px;
-      border-radius: 6px;
-      border: none;
+      padding: 6px 16px;
+      font-size: 13px;
+      border-radius: 3px;
+      border: 1px solid transparent;
       cursor: pointer;
     }
     #submitBtn {
@@ -64,14 +74,15 @@
       cursor: not-allowed;
     }
     #cancelBtn {
-      background: #eee;
+      background: #fff;
       color: #333;
+      border: 1px solid #d3d3d3;
     }
     .status {
-      font-size: 13px;
+      font-size: 12px;
       color: #777;
-      margin-bottom: 12px;
-      min-height: 18px;
+      margin-bottom: 10px;
+      min-height: 16px;
     }
     .error {
       color: #d93025;
