@@ -35,10 +35,6 @@ ZOHO.embeddedApp.on("PageLoad", function (data) {
   // for record id / transition id / module in your org's Blueprint context.
   console.log("PageLoad data:", data);
 
-  ZOHO.CRM.UI.Resize({ height: "260", width: "660" }).then(function (resizeData) {
-    console.log("resize:", resizeData);
-  });
-
   recordId = data.EntityId || (data.Entity && data.Entity[0]) || data.recordId;
   transitionId = data.TransitionId || data.transition_id;
   moduleApiName = data.Entity && data.Entity.moduleName ? data.Entity.moduleName : "Leads";
