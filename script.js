@@ -34,7 +34,7 @@ function resizeWidget() {
     return;
   }
 
-  Promise.resolve(ZOHO.CRM.UI.Resize({ width: 665, height: 205 }))
+  Promise.resolve(ZOHO.CRM.UI.Resize({ width: 1000, height: 310 }))
     .catch(function (err) {
       // The popup can still use the dimensions configured in Zoho if resizing is unavailable.
       console.warn("Widget resize failed:", err);
