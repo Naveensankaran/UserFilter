@@ -35,9 +35,21 @@ ZOHO.embeddedApp.on("PageLoad", function (data) {
   // for record id / transition id / module in your org's Blueprint context.
   console.log("PageLoad data:", data);
 
-  recordId = data.EntityId || (data.Entity && data.Entity[0]) || data.recordId;
-  transitionId = data.TransitionId || data.transition_id;
-  moduleApiName = data.Entity && data.Entity.moduleName ? data.Entity.moduleName : "Leads";
+  // Zoho commonly supplies EntityId as an array; the Blueprint API requires one ID string.
+  recordId = Array.isArray(data.EntityId)
+    ? data.EntityId[0]
+    : data.EntityId || data.recordId || (Array.isArray(data.Entity) ? data.Entity[0] : null);
+
+  transitionId = data.TransitionId || data.transition_id || data.transitionId;
+
+  // Depending on the widget context, Entity can be a module-name string or an object.
+  moduleApiName = typeof data.Entity === "string"
+    ? data.Entity
+    : (data.Entity && data.Entity.moduleName) || data.module || "Leads";
+
+  if (!recordId || !transitionId) {
+    console.warn("Blueprint context is incomplete:", { recordId, transitionId, data });
+  }
 
   loadUsersByRole();
 });
