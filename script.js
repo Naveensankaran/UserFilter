@@ -28,19 +28,6 @@ function setStatus(msg, isError) {
   statusEl.className = isError ? "status error" : "status";
 }
 
-// Set the custom-button widget popup to the compact Blueprint-form size.
-function resizeWidget() {
-  if (!ZOHO.CRM.UI || typeof ZOHO.CRM.UI.Resize !== "function") {
-    return;
-  }
-
-  Promise.resolve(ZOHO.CRM.UI.Resize({ width: 1000, height: 310 }))
-    .catch(function (err) {
-      // The popup can still use the dimensions configured in Zoho if resizing is unavailable.
-      console.warn("Widget resize failed:", err);
-    });
-}
-
 // ---- 1. Fires when the widget loads inside the Blueprint transition popup ----
 ZOHO.embeddedApp.on("PageLoad", function (data) {
   // IMPORTANT: console.log this once in the browser dev tools (F12) the first
@@ -64,7 +51,6 @@ ZOHO.embeddedApp.on("PageLoad", function (data) {
     console.warn("Blueprint context is incomplete:", { recordId, transitionId, data });
   }
 
-  resizeWidget();
   loadUsersByRole();
 });
 
