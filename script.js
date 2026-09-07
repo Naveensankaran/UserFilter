@@ -35,7 +35,7 @@ ZOHO.embeddedApp.on("PageLoad", function (data) {
   // for record id / transition id / module in your org's Blueprint context.
   console.log("PageLoad data:", data);
 
-  ZOHO.CRM.UI.Resize({ height: "220", width: "420" }).then(function (resizeData) {
+  ZOHO.CRM.UI.Resize({ height: "260", width: "660" }).then(function (resizeData) {
     console.log("resize:", resizeData);
   });
 
